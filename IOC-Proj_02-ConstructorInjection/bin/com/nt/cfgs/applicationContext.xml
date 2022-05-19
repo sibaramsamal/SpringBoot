@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="addr" class="com.nt.beans.Address">
+		<constructor-arg name="streetName" value="Mainroad Street"></constructor-arg>
+		<constructor-arg name="pin" value="761008"></constructor-arg>
+		<constructor-arg name="state" value="Odisha"></constructor-arg>
+	</bean>
+	
+	<bean id="std" class="com.nt.beans.Student">
+		<constructor-arg name="sid" value="14"></constructor-arg>
+		<constructor-arg name="sname" value="Sibaram Samal"></constructor-arg>
+		<constructor-arg name="addr" ref="addr"></constructor-arg>		
+	</bean>
+</beans>

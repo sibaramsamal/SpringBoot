@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="addr" class="com.nt.beans.Address">
+		<property name="streetName" value="Main road street"></property>
+		<property name="pin" value="761008"></property>
+		<property name="state" value="Odisha"></property>
+	</bean>
+	
+	<bean id="std" class="com.nt.beans.Student">
+		<property name="sid" value="14"></property>
+		<property name="sname" value="Sibaram Samal"></property>
+		
+		<property name="addr" ref="addr">
+		</property>
+	</bean>
+
+</beans>
