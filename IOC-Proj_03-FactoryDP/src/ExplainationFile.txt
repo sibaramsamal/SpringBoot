@@ -1,0 +1,6 @@
+The main task of this DP approach is to achieve the abstraction on the object creataion.
+- Here we just need to call the static method of factory class and that method is responsible for creation of the required object we have passed as argument.
+- In this example, BudgetCar, Luxury car and the sports car are the types of Car varients. And MRF, CEAT are the varient of Tyre class.
+	By help of this DP, we can get the object of SportsCar, LuxuryCar, BudgetCar etc and passed Different tyre object. Bases on the tyre type, it will return object.
+- To achieve loose coupling, we have implemented Car and Tyre interfaces and created their respective concrete classes.
+- CarFactory is our factory class here containing getCarInstance() to return Car object based n the tyer type.
