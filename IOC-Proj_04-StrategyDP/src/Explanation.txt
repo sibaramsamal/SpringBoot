@@ -4,4 +4,4 @@ The 3 key rules to achieve this are;
 	2) Always try to code to interfaces.
 	3) Our code should be open for enhancements but must be close for modifications.
 
-In this example, we have implemented the courior type classes inorder to achieve less dependency between these classes.
+In this example, we have implemented the courior type classes in order to achieve less dependency between these classes.
