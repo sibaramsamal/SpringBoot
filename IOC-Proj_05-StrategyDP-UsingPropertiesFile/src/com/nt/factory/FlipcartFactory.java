@@ -9,7 +9,7 @@ import com.nt.components.Flipcart;
 
 public class FlipcartFactory {
 	private static Properties p = null;
-	{
+	static{
 		try {
 			InputStream is = new FileInputStream("src/com/nt/commons/application.properties");
 			p = new Properties();
@@ -19,16 +19,18 @@ public class FlipcartFactory {
 		}
 	}
 	public static Flipcart getFlipcartObject() {
+
 		Flipcart fct = new Flipcart();
 		CouriorServiceProvider cpr = null;
 		try {
-			cpr = (CouriorServiceProvider)Class.forName(p.getProperty("sdp.dependent")).newInstance();
 			
+			cpr = (CouriorServiceProvider) Class.forName(p.getProperty("sdp.dependent")).newInstance();
+
 			fct.setCourierPartner(cpr);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return fct;
 	}
 }

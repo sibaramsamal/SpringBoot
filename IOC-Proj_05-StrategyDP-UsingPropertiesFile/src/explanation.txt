@@ -1,0 +1,13 @@
+In previous approaches, we have hard coded the classes for the required courier class.
+If in futyre we need to change the courior company, we have to make change in the factory file. Which is very sensitive in real word practice.
+So we have implemented the usage of properties file from which we have fetched the informations and according to the data we have created the dependent class object and assigned into the target class.
+
+To fetch the data from the properties file, we have to provide the key in the getProperties() of Properties class
+steps:
+	1) Locate the properties file:
+		InputStream is = new FileInputStream("location of the file");
+	2) load the located property file:
+		Properties p = new Properrties();
+		p.load(is);
+	3) To get the required property, 
+		p.getProperty("key we want to get thevalue of"); 
