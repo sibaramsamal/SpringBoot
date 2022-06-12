@@ -1,0 +1,7 @@
+CREATE TABLE `ntsb615`.`customer` (
+  `cid` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+  `amount` FLOAT NULL,
+  `interest` FLOAT NULL,
+  PRIMARY KEY (`cid`));

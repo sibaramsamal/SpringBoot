@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Specifying inmemory metadata for making DataSource class as springBean 
+		class -->
+	<!-- Here we are mensioning that when ever this class object will be created, 
+		it will be instantiated with setter methods to initialize te fields -->
+	<bean id="dsPool" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ntsb615" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+	
+	<!-- DataSource object is injected and mensioned as Spring Bean-->
+	<bean id="daoMySQL" class="com.nt.dao.DAOImplMySql">
+		<constructor-arg name="ds" ref="dsPool"/>
+	</bean>
+	
+	<!-- DAOMySQL object inserted into Service class and mensioned as Spring Bean-->
+	<bean id="serv" class="com.nt.service.CustomerService">
+		<constructor-arg name="dao" ref="daoMySQL"/>
+	</bean>
+	
+	<bean id="custController" class="com.nt.controller.Controller">
+		<constructor-arg name="service" ref="serv"></constructor-arg>
+	</bean>
+	
+</beans>
