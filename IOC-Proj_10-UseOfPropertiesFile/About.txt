@@ -1,0 +1,15 @@
+Properties files are the external files usually a normal text files having "key = value" pair 
+data in it.
+
+To work with properties file in the java config approach, we have to follow these conditions.
+	1) Create a properties file (application.properties in this case)
+	2) create a xml file to set a context value for the container and provide an alias for that key
+		- Here context type schema must be added to use <context> inside which property-placeholder attribute
+		needed to locate the properties file
+		
+		- <alias> tag is used to give an alias name to our key that is mensioned inside properties file
+	3)  Now we have to link the xml file with our configuration class using 
+			@ImportResource()
+	
+	4) Now to use the alias in the target class we have to place the alias name in 
+		@Qualifier("aliasname") with the field which we want to get the injected data
