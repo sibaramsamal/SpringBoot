@@ -1,0 +1,15 @@
+In 100% code or java config approach, we can have normal java project or maven or gradle one.
+Here all the object creation instructionns are fetched from the configuration class.
+
+For userdefined classes, the classes mentioned with sterio type annotation are fetched from the mensioned "basePackages"
+attribute of @ComponentScan() annotation.
+
+For predefined classes, user have to manually create object creation logics inside @Bean annotated method.
+And place that method inside our configuration class.
+
+Java configuration class is a replacement of xml file and annotated with @Configuration 
+
+Here all the required jars are to be arranged by programmer manually.
+
+@Autowired annotation is used with the fields inside the classes and based on the annotations,
+the IOC container created beans are injected directly to the fields.
