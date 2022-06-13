@@ -1,0 +1,22 @@
+This is a simple java project implementing Strategy design pattern.
+In this approach, we have implemented a class in such a way that it can be versatile and open for any type of
+enhancements if needed.
+	Here we have a common Engine type interface and to implement that we have Diesel,Petrol and Gas 
+varient at this mement. In future if needed, we can just implement Engine and create a new engine type easily.
+
+Here we assemble to understand the dependency injection, then findout some demerits of it. Then we can go for it's solution.
+
+Here as there are multiple engines are there, when we try to get their object in Engine type variable through IOC injection,
+as there is no priority mensioned, container tries to inject all of the objects to that field. Which causes ambiguity issue.
+
+To solve this problem, we have two annotations.
+	1. @Primary
+		It is used in the dependent classes.
+		At a time only one class can be declares as Primary
+	2. @Qualifier
+		it is used in the target class field name
+		Here we have to pass the id name of the class inside it, of which we want the object.
+
+In both the approaches, we have to open the source code and chane it when ever required. Which is
+not at all recomended in production env.
+	 So we have to introduce properties file and data to be fetched from that file when ever required.
