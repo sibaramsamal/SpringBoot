@@ -1,0 +1,19 @@
+Spring starter projects are the advanced type of projects used to develope SpringBoot applications
+with some predefined project structure and a set of starter which are capable of performing auto configuration.
+
+Eg. Spring context support starter is bydefault comming with every basic SB project and it arranges
+number of main jars, dependent and relevent jars in to the project. Which are having some predefined
+classes and IOC container takes the jars and created objects of those classes.
+
+Required Annotations:
+	1) @SpringBootApplication
+		Internally it contains @Configuration, @ComponentScan and @EnableAutoConfiguration. So we can
+		use it with our class containing main() as configuration file.
+		
+		we can place predefined class object creation method(the classes not related to SB starter
+		pack we	added while creating the project) with @Bean.
+	
+	2) @Component or @Service or @Controler etc like Sterio type annotations for defining userdefined class.
+		
+	3) @Autowired for field injection.
+		 
