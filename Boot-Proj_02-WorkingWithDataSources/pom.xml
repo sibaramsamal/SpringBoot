@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.0</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>nit</groupId>
+	<artifactId>Boot-Proj_02-WorkingWithDataSources</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Boot-Proj_02-WorkingWithDataSources</name>
+	<description>Working with readymade and userdefined and external
+		datasources
+	</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<!-- SprinBoot Starter pack default Datasources zip files Hikari CP datasource 
+			is bydefault available to project. So no need to add manually If we exclude 
+			this Datasource, we have to add the jars manually which we want to use.
+				 remaining 3 data source are in the order of priority are :
+				 		2. Tomcat Connection Pool
+				 		3. Apache DBCP
+				 		4. Oracle Universal Connection Pool
+		-->
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-jdbc</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		</dependency>
+		<!-- SB starter known Datasource dependencies ended here -->
+		
+		<!-- External Datasources that are not known to SpringBoot starter pack starts here -->
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.2</version>
+		</dependency>
+		
+		<!-- Database interacting zip files -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Database interacting zipfiles dependencies ended here -->
+
+		<!-- Default starter added automatically while creating starter project -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

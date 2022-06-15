@@ -1,0 +1,44 @@
+This project is the demonstration of using multiple datasource objects.
+
+	Bydefault there are 4 datasource classes are configured to be created automatically in the 
+process of auto configuration. It means without @Bean method in the @SpringBootApplication,
+their objects can be created by just adding their jars. 
+
+	Other than these 4 classes, there are thousands of DataSources available in the market. 
+If we want those classes create datasourcce object for us, we have to arrange their jar files
+and also "manually add the object creation logic" inside @Bean method inside @SpringBootApplication.
+
+To use External Datasource object, 
+	1) first we have to Exclude the default 4 datasource jars or goto step 2
+	2) specify the external DS jar class name in the properties filewith the following key-	
+			"spring.datasource.type" = that DS class name.
+	3) define object creation logic in the @Bean method in the @SpringBootApplication file.
+		@Bean
+		public DataSource myLogic(){
+			ComboPooledDataSource ds = new ComboPooledDataSource();
+			ds.setDriverClass("com.mysql.cj.jdbc.Driver");
+			ds.setJdbcUrl("jdbc:mysql://localhost:3306/ntsb615");
+			ds.setUser("root");
+			ds.setPassword("");
+			return ds;	
+		}
+
+eg. If we want to use C3p0 datasource, we have to type in the properties file
+		spring.datasource.type = com.mchange.v2.c3p0.ComboPooledDataSource
+		
+	ComboPooledDataSource class is for C3p0. We can get any data source class by typing 
+	xyz datasource docs in the google and get the constructor details.
+
+Note:
+	1) We can use the above algo. breaking line in the properties file for change the flow of
+	predefined DS objects also.
+	The known Order is this given order.
+		a) com.zaxxer.hikari.HikariDataSource (by default)
+		b) org.apache.tomcat.jdbc.pool.DataSource (for tomcat cp class, if Hikari is not there)
+		c) org.apache.commons.dbcp2.BasicDataSource (for apache dbcp class, if above two are not there)
+	_____ (oracle class missing. If all above three are not there, Oracle UCP will be activated)
+	
+	2) If there is a @Bean method in the main class file, priority given to that DS cretaion
+		even if all the 4 known jars are available.
+	
+
