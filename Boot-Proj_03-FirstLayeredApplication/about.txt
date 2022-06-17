@@ -1,0 +1,11 @@
+This is a simple miniproject used the concepts like how a mvc nased projects interacts with different layers.
+
+		  	(CustomerBean object)			  (CustomerBean object)   (CustomerBO object) 
+BootProj03 ----------------------> CustomerController -------> CustomerService ----> CustomerDAO  ---->   DB S/W
+
+=> Client class can have only data fetching logic from the client
+=> Controller class only have navigating the request and fetch the methods of service class
+=> Servicelayer is obly having the calculations logic or B. Logic
+=> DAO layer can have only Presistance logic. It can't have busuness process logic.
+
+According to the standard rules, this application is developed.
